@@ -76,3 +76,23 @@
     display: flex;
     justify-content: center;
 }
+
+.filter {
+    margin: 10px;
+}
+
+.shimmers-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+    background-color: rgb(157, 217, 149);
+}
+
+.filter {
+    display: flex;
+}

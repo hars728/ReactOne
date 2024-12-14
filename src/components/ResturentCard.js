@@ -12,6 +12,7 @@ const ResturentCard = (props) => {
             <h3>{resdata.info.name}</h3>
             <h4>{resdata.info.cuisines.join(" , ")}</h4>
             <h4>{resdata.info.locality}</h4>
+            <h4>{resdata.info.areaName}</h4>
             <h4>Within {resdata.info.sla.slaString}</h4>
             <h4>{resdata.info.costForTwo}</h4>
             <h4>{resdata.info.avgRatingString} Star rating</h4>
