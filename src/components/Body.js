@@ -8,6 +8,7 @@ const Body = () => {
 
     const [listofRestu, setlistofRestu] = useState([]);
     const [searchText, setsearchText] = useState("");
+    const [searchResult, setsearchResult] = useState([]);
 
     useEffect(() => {
         fetchData();
@@ -20,6 +21,7 @@ const Body = () => {
         const jsonData = await data.json();
         console.log(jsonData);
         setlistofRestu(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        setsearchResult(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
     };
     if (listofRestu.length === 0) {
         return <Shimmers />
@@ -31,7 +33,11 @@ const Body = () => {
                     <input className="search-box" type="text" value={searchText} onChange={(e) => setsearchText(e.target.value)} />
                     <button onClick={() => {
                         console.log(searchText);
-                    }} >
+                        const filteredList = listofRestu.filter((item) => item.info.name.toLowerCase().includes(searchText.toLowerCase()));
+
+                        setsearchResult(filteredList);
+                    }}
+                    >
                         Search
                     </button>
                 </div>
@@ -52,7 +58,7 @@ const Body = () => {
 
             </div>
             <div className="card-container">
-                {listofRestu.map((restaura) => (
+                {searchResult.map((restaura) => (
                     <ResturentCard key={restaura.info.id} resdata={restaura} />
                 ))}
             </div>
