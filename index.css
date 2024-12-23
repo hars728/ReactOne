@@ -96,3 +96,7 @@
 .filter {
     display: flex;
 }
+
+.colorofthis {
+    text-decoration: none;
+}

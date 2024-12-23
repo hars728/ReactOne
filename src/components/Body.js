@@ -3,6 +3,7 @@ import ResturentCard from "./ResturentCard";
 import restaurants from "../utils/StaticData";
 import { useEffect, useState } from "react";
 import Shimmers from "./Shimmers";
+import { Link } from "react-router-dom";
 
 const Body = () => {
 
@@ -15,7 +16,7 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.5024286&lng=83.7791283&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
 
         const jsonData = await data.json();
@@ -59,11 +60,18 @@ const Body = () => {
             </div>
             <div className="card-container">
                 {searchResult.map((restaura) => (
-                    <ResturentCard key={restaura.info.id} resdata={restaura} />
+                    <Link
+                        className="colorofthis"
+                        key={restaura.info.id}
+                        to={"/resturent/" + restaura.info.id}
+                    >
+                        <ResturentCard resdata={restaura} />
+                    </Link>
+
                 ))}
             </div>
         </div>
     );
 };
 
-export default Body;
+export default Body; 
