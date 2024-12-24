@@ -12,7 +12,7 @@ class UserClass extends React.Component {
             }
         };
 
-        console.log("child comonent const");
+        // console.log("child comonent const");
 
     }
     async componentDidMount() {
@@ -23,12 +23,12 @@ class UserClass extends React.Component {
             userInfo: json,
         });
 
-        console.log("child component did mount");
+        // console.log("child component did mount");
     }
 
     render() {
 
-        console.log("child render");
+        // console.log("child render");
 
         const { name, location, avatar_url } = this.state.userInfo;
         const { count, count1 } = this.state;

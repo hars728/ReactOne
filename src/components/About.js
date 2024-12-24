@@ -7,7 +7,7 @@ class About extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log("parent comonent const");
+        // console.log("parent comonent const");
     }
 
     async componentDidMount() {
@@ -17,7 +17,7 @@ class About extends React.Component {
 
 
     render() {
-        console.log("parent render");
+        // console.log("parent render");
         return (
             <div className="about">
                 <h1 className="about__title">About the web </h1>
