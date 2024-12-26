@@ -4,6 +4,7 @@ import restaurants from "../utils/StaticData";
 import { useEffect, useState } from "react";
 import Shimmers from "./Shimmers";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -16,7 +17,7 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.9924669&lng=85.3636758&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
 
         const jsonData = await data.json();
@@ -24,6 +25,13 @@ const Body = () => {
         setlistofRestu(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setsearchResult(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
     };
+
+    const onlineStatus = useOnlineStatus();
+    if (onlineStatus === false)
+        return (
+            <h1>no working</h1>
+        );
+
     if (listofRestu.length === 0) {
         return <Shimmers />
     }
@@ -46,7 +54,7 @@ const Body = () => {
                     className="filter-btn"
                     onClick={() => {
                         const filterData = listofRestu.filter(
-                            (res) => res.info.avgRating > 3.7
+                            (res) => res.info.avgRating > 4.4
                         );
                         console.log("btn click");
                         setlistofRestu(filterData);
