@@ -11,7 +11,7 @@ import ResturentMenu from "./components/ResturentMenu";
 
 const AppLayout = () => {
     return (
-        <div className="app">
+        <div className="app bg-pink-100">
             <Header />
             <Outlet />
             <Footer />

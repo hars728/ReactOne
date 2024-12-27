@@ -37,36 +37,41 @@ const Body = () => {
     }
     return (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input className="search-box" type="text" value={searchText} onChange={(e) => setsearchText(e.target.value)} />
-                    <button onClick={() => {
-                        console.log(searchText);
-                        const filteredList = listofRestu.filter((item) => item.info.name.toLowerCase().includes(searchText.toLowerCase()));
+            <div className=" flex ">
+                <div className="search m-4 p-4">
+                    <input className="border border-solid border-black" type="text" value={searchText} onChange={(e) => setsearchText(e.target.value)} />
+                    <button className="bg-green-200 border border-solid rounded-md px-4 py-2 m-4"
+                        onClick={() => {
+                            console.log(searchText);
+                            const filteredList = listofRestu.filter((item) => item.info.name.toLowerCase().includes(searchText.toLowerCase()));
 
-                        setsearchResult(filteredList);
-                    }}
+                            setsearchResult(filteredList);
+                        }}
                     >
                         Search
                     </button>
                 </div>
-                <button
-                    className="filter-btn"
-                    onClick={() => {
-                        const filterData = listofRestu.filter(
-                            (res) => res.info.avgRating > 4.4
-                        );
-                        console.log("btn click");
-                        setlistofRestu(filterData);
-                        console.log(filterData);
 
-                    }}
-                >
-                    Top rated resturant
-                </button>
+                <div className=" flex items-center">
+
+                    <button
+                        className="bg-pink-400 border border-solid hover:bg-pink-500 rounded-md py-2 px-4 "
+                        onClick={() => {
+                            const filterData = listofRestu.filter(
+                                (res) => res.info.avgRating > 4.4
+                            );
+                            console.log("btn click");
+                            setlistofRestu(filterData);
+                            console.log(filterData);
+
+                        }}
+                    >
+                        Top rated resturant
+                    </button>
+                </div>
 
             </div>
-            <div className="card-container">
+            <div className="flex flex-wrap">
                 {searchResult.map((restaura) => (
                     <Link
                         className="colorofthis"

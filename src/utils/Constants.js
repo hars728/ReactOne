@@ -5,3 +5,7 @@ export const LOGO_URL = "https://imgs.search.brave.com/kVwV-lOR8T-feom3kwV_6vHhm
 export const MENU_API_1 = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
 
 export const MENU_API_2 = "&catalog_qa=undefined&submitAction=ENTER";
+
+
+
+// <a href='https://pngtree.com/freepng/restaurant-logo_7932128.html'>png image from pngtree.com/</a>
