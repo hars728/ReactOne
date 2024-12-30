@@ -17,13 +17,13 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.9924669&lng=85.3636758&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
 
         const jsonData = await data.json();
         console.log(jsonData);
-        setlistofRestu(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        setsearchResult(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        setlistofRestu(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setsearchResult(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
     const onlineStatus = useOnlineStatus();
@@ -58,10 +58,11 @@ const Body = () => {
                         className="bg-pink-400 border border-solid hover:bg-pink-500 rounded-md py-2 px-4 "
                         onClick={() => {
                             const filterData = listofRestu.filter(
-                                (res) => res.info.avgRating > 4.4
+                                (res) => res.info.avgRating > 4.1
                             );
                             console.log("btn click");
-                            setlistofRestu(filterData);
+                            // setlistofRestu(filterData);
+                            setsearchResult(filterData);
                             console.log(filterData);
 
                         }}
